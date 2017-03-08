@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Informacion del Usuario</h2>
+    <ul>
+        <li><%= user.name %></li>
+        <li><%= user.email %></li>
+    </ul>
+    <form action="/user/edit/<%=user.id%>" method="post">
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>

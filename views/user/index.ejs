@@ -1,0 +1,30 @@
+<div class="container">
+    <h3>Usuarios Registrados</h3>
+    <table class="table table-responsive">
+        <head>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th colspan="2" class="text-center">Acciones</th>
+        </head>
+        <tbody>
+            <% _.each(users,function(user){ %>
+            <tr>
+                <td><%=user.name%></td>
+                <td><%=user.lastname%></td>
+                <td><%=user.email%></td>
+                <td>
+                    <a href="/user/show/<%=user.id%>" class="btn btn-primary">Ver Detalles</a>
+                </td>
+                <td>
+                    <form action="/user/destroy/<%=user.id%>" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="submit" class="btn btn-xa btn-danger" value="Delete">
+                        <input type="hidden" name="_csrf" value="<%=_csrf%>">
+                    </form>
+                </td>
+            </tr>
+            <% })%>
+        </tbody>
+    </table>
+</div>
