@@ -6,7 +6,23 @@
         <li><%- JSON.stringify(flash.err[error]) %></li>
         <% }) %>
     </ul>
-    <% } %>
+    <form method="post" action="/user/create" accept-charset="utf-8" class="form-singin">
+        <label>Name:</label>
+        <input name="name" class="form-control" value="<%= flash.user.name %>" required >
+        <label>LastName:</label>
+        <input name="lastname" class="form-control" value="<%= flash.user.lastname %>" required>
+        <label>Username:</label>
+        <input name="username" class="form-control" value="<%= flash.user.username %>" required >
+        <label>E-mail:</label>
+        <input name="email" value="<%= flash.user.email %>" class="form-control">
+        <label>Password:</label>
+        <input type="password" name="password" value="" class="form-control">
+        <label>Password Confirmation:</label>
+        <input type="password" name="passwordConfirmation" value="" class="form-control">
+        <br>
+        <input type="submit" class="btn btn-success" value="Guardar">
+    </form>
+    <% } else {%>
     <form method="post" action="/user/create" accept-charset="utf-8" class="form-singin">
         <label>Name:</label>
         <input name="name" class="form-control" required >
@@ -16,7 +32,13 @@
         <input name="username" class="form-control" required >
         <label>E-mail:</label>
         <input name="email" class="form-control">
+        <label>Password:</label>
+        <input type="password" name="password" class="form-control">
+        <label>Password Confirmation:</label>
+        <input type="password" name="passwordConfirmation" class="form-control">
         <br>
         <input type="submit" class="btn btn-success" value="Guardar">
     </form>
+    <% } %>
+    
 </div>

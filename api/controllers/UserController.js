@@ -17,12 +17,14 @@ module.exports = {
             lastname:req.param('lastname'),
             username:req.param('username'),
             email:req.param('email'),
+            password:req.param('password'),
+            passwordConfirmation:req.param('passwordConfirmation')
         }
         User.create(userObj,function(err,user){
             if(err){
                 console.log(JSON.stringify(err))
                 req.session.flash={
-                    err:err
+                    err:err,user:userObj
                 }
                 return res.redirect('user/new')
             }                
