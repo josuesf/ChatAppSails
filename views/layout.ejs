@@ -66,8 +66,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Home</a></li>
-            <li><a href="/user/new">Registrarse</a></li>
-            <li class=""><a href="./">Iniciar Sesion </a></li>
+            
+            <% if(!session.authenticated){ %>
+                <li><a href="/user/new">Registrarse</a></li>
+                <li class=""><a href="/session/new">Iniciar Sesion </a></li>
+            <% } %>  
+            <% if(session.authenticated){ %>
+              <li class=""><a href="/session/destroy">Cerrar Sesion </a></li>
+            <% } %>  
           </ul>
         </div><!--/.nav-collapse -->
       </div>
